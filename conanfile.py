@@ -6,14 +6,13 @@
 from conans import ConanFile, CMake, tools
 
 
-class SolaceConan(ConanFile):
-    name = "solace"
-    libname = "lib%s" % name
+class LibsolaceConan(ConanFile):
+    name = "libsolace"
     version = "0.1"
     license = "Apache-2.0"
     author = "Ivan Ryabov <abbyssoul@gmail.com>"
-    url = "https://github.com/abbyssoul/conan-%s" % libname
-    homepage = "https://github.com/abbyssoul/%s" % libname
+    url = "https://github.com/abbyssoul/conan-%s" % name
+    homepage = "https://github.com/abbyssoul/%s" % name
     description = "High performance components for mission critical applications"
     topics = ("HPC", "P10", "solace", "performance", "c++", "conan")
     settings = "os", "compiler", "build_type", "arch"
@@ -21,17 +20,17 @@ class SolaceConan(ConanFile):
     default_options = "shared=False"
     generators = "cmake"
 
-    src_url = "https://github.com/abbyssoul/%s" % libname
+    src_url = "https://github.com/abbyssoul/%s" % name
 
     def source(self):
 #        git = tools.Git()
 #        git.clone(self.src_url)
         self.run("git clone --depth 1 --recurse-submodules {}".format(self.src_url))
-        self.run("cd %s" % self.libname)
+        self.run("cd %s" % self.name)
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder=self.libname)
+        cmake.configure(source_folder=self.name)
         cmake.build()
 
     def package(self):
@@ -43,5 +42,4 @@ class SolaceConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = [self.name]
-
+        self.cpp_info.libs = ["solace"]
