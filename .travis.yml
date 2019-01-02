@@ -1,6 +1,6 @@
 env:
    global:
-     - CONAN_ARCHS: "x86_64,armv8"
+     - CONAN_ARCHS: "x86_64"
      - CONAN_REFERENCE: "libsolace/0.1"
      - CONAN_CHANNEL: "testing"
      - CONAN_UPLOAD: "https://api.bintray.com/conan/abbyssoul/public-conan"
@@ -18,9 +18,9 @@ osx: &osx
 matrix:
    include:
       - <<: *linux
-        env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7
+        env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_ARCHS="x86_64,armv7"
       - <<: *linux
-        env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8
+        env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_ARCHS="x86_64,armv7"
       - <<: *linux
         env: CONAN_CLANG_VERSIONS=5.0 CONAN_DOCKER_IMAGE=conanio/clang50
       - <<: *linux
