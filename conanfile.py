@@ -14,7 +14,7 @@ class LibsolaceConan(ConanFile):
     url = "https://github.com/abbyssoul/conan-%s" % name
     homepage = "https://github.com/abbyssoul/%s" % name
     description = "High performance components for mission critical applications"
-    topics = ("HPC", "P10", "solace", "performance", "c++", "conan")
+    topics = ("HPC", "High reliability software", "P10", "solace", "performance", "c++", "conan")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = "shared=False", "fPIC=True"
