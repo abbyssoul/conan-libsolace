@@ -1,5 +1,6 @@
 env:
    global:
+     - CONAN_ARCHS: "x86_64,armv8"
      - CONAN_REFERENCE: "libsolace/0.1"
      - CONAN_CHANNEL: "testing"
      - CONAN_UPLOAD: "https://api.bintray.com/conan/abbyssoul/public-conan"
@@ -8,7 +9,7 @@ linux: &linux
    os: linux
    sudo: required
    language: python
-   python: "3.6"
+   python: "3.7"
    services:
      - docker
 osx: &osx

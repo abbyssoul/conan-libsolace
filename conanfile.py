@@ -16,16 +16,20 @@ class LibsolaceConan(ConanFile):
     description = "High performance components for mission critical applications"
     topics = ("HPC", "P10", "solace", "performance", "c++", "conan")
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False]}
-    default_options = "shared=False"
+    options = {"shared": [True, False], "fPIC": [True, False]}
+    default_options = "shared=False", "fPIC=True"
     generators = "cmake"
 
-    src_url = "https://github.com/abbyssoul/%s" % name
+    _src_url = "https://github.com/abbyssoul/%s" % name
+
+    def config_options(self):
+        if self.settings.os == "Windows":
+            del self.options.fPIC
 
     def source(self):
 #        git = tools.Git()
-#        git.clone(self.src_url)
-        self.run("git clone --depth 1 --recurse-submodules {}".format(self.src_url))
+#        git.clone(self._src_url)
+        self.run("git clone --depth 1 --recurse-submodules {}".format(self._src_url))
         self.run("cd %s" % self.name)
 
     def build(self):
