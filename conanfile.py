@@ -29,11 +29,12 @@ class LibsolaceConan(ConanFile):
     def source(self):
 #        git = tools.Git()
 #        git.clone(self._src_url)
+        # TODO: Only clone tagged vesion: tags/self.version
         self.run("git clone --depth 1 --recurse-submodules {}".format(self._src_url))
         # self.run("cd %s" % self.name)
 
     def build(self):
-        cmake = CMake(self)
+        cmake = CMake(self, parallel=True)
         cmake.configure(source_folder=self.name)
         cmake.build()
         cmake.test()
