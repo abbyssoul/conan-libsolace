@@ -31,7 +31,6 @@ class LibsolaceConan(ConanFile):
 #        git.clone(self._src_url)
         # TODO: Only clone tagged vesion: tags/self.version
         self.run("git clone --depth 1 --recurse-submodules {}".format(self._src_url))
-        # self.run("cd %s" % self.name)
 
     def build(self):
         cmake = CMake(self, parallel=True)
@@ -41,11 +40,11 @@ class LibsolaceConan(ConanFile):
         cmake.install()
 
     def package(self):
-        self.copy("*.hpp", dst="include", src="libsolace/include", keep_path=True)
-        self.copy("*solace.lib", dst="lib", keep_path=False)
+        self.copy("*.hpp", dst="include", src="include")
+        self.copy("*.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
+        self.copy("*.dylib*", dst="lib", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)
-        self.copy("*.dylib", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):

@@ -7,6 +7,7 @@ env:
 
 linux: &linux
    os: linux
+   dist: xenial
    sudo: required
    language: python
    python: "3.6"
@@ -35,7 +36,7 @@ matrix:
         env: CONAN_APPLE_CLANG_VERSIONS=10.0
 
 install:
-  - ./.ci/install.sh
+  - ./.travis/install.sh
 
 script:
-  - ./.ci/build.sh
+  - ./.travis/build.sh
