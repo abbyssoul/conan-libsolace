@@ -14,7 +14,7 @@ class LibsolaceConan(ConanFile):
     url = "https://github.com/abbyssoul/conan-%s" % name
     homepage = "https://github.com/abbyssoul/%s" % name
     description = "High performance components for mission critical applications"
-    topics = ("HPC", "High reliability software", "P10", "solace", "performance", "c++", "conan")
+    topics = ("HPC", "High reliability", "P10", "solace", "performance", "c++", "conan")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = "shared=False", "fPIC=True"
@@ -30,12 +30,14 @@ class LibsolaceConan(ConanFile):
 #        git = tools.Git()
 #        git.clone(self._src_url)
         self.run("git clone --depth 1 --recurse-submodules {}".format(self._src_url))
-        self.run("cd %s" % self.name)
+        # self.run("cd %s" % self.name)
 
     def build(self):
         cmake = CMake(self)
         cmake.configure(source_folder=self.name)
         cmake.build()
+        cmake.test()
+        cmake.install()
 
     def package(self):
         self.copy("*.hpp", dst="include", src="libsolace/include", keep_path=True)
