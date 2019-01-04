@@ -6,8 +6,8 @@
 | [![Download][download-shield]][download-link] | [![Build Status][travis-shield]][travis-link]|
 
 [src-link]: https://github.com/abbyssoul/libsolace/
-[download-shield]: https://api.bintray.com/packages/abbyssoul/public-conan/libsolace/images/download.svg
-[download-link]: https://bintray.com/abbyssoul/public-conan/libsolace/_latestVersion
+[download-shield]: https://api.bintray.com/packages/abbyssoul/public-conan/libsolace%3Aabbyssoul/images/download.svg
+[download-link]: https://bintray.com/abbyssoul/public-conan/libsolace%3Aabbyssoul/_latestVersion
 [travis-shield]: https://travis-ci.org/abbyssoul/conan-libsolace.svg?branch=master
 [travis-link]: https://travis-ci.org/abbyssoul/conan-libsolace
 
