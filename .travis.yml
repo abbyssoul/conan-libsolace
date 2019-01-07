@@ -1,7 +1,7 @@
 env:
    global:
      - CONAN_ARCHS: "x86_64"
-     - CONAN_CHANNEL: "testing"
+     - CONAN_CHANNEL: "stable"
      - CONAN_UPLOAD: "https://api.bintray.com/conan/abbyssoul/public-conan"
 
 linux: &linux
