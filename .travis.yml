@@ -18,7 +18,7 @@ osx: &osx
 matrix:
    include:
       - <<: *linux
-        env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=conanio/gcc7 CONAN_ARCHS="x86_64,armv7,armv7hf"
+        env: CONAN_GCC_VERSIONS=7.2 CONAN_DOCKER_IMAGE=conanio/gcc72 CONAN_ARCHS="x86_64,armv7,armv7hf"
       - <<: *linux
         env: CONAN_GCC_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/gcc8 CONAN_ARCHS="x86_64,armv7,armv7hf"
       - <<: *linux
@@ -28,7 +28,7 @@ matrix:
       - <<: *linux
         env: CONAN_CLANG_VERSIONS=7.0 CONAN_DOCKER_IMAGE=conanio/clang7
       - <<: *linux
-        env: CONAN_CLANG_VERSIONS=8.0 CONAN_DOCKER_IMAGE=conanio/clang8
+        env: CONAN_CLANG_VERSIONS=8 CONAN_DOCKER_IMAGE=conanio/clang8
       - <<: *osx
         osx_image: xcode9.4
         env: CONAN_APPLE_CLANG_VERSIONS=9.1
