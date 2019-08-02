@@ -34,7 +34,7 @@ class LibsolaceConan(ConanFile):
         cmake = CMake(self, parallel=True)
         cmake.configure(source_folder=self.name)
         cmake.build()
-        cmake.test(target="test_solace")
+        # cmake.test(target="test_solace") Don't waste time building tests 
         cmake.install()
 
     def package(self):
