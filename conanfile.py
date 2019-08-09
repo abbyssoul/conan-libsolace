@@ -8,7 +8,7 @@ from conans import ConanFile, CMake, tools
 
 class LibsolaceConan(ConanFile):
     name = "libsolace"
-    version = "0.2.0"
+    version = "0.2.1"
     license = "Apache-2.0"
     author = "Ivan Ryabov <abbyssoul@gmail.com>"
     url = "https://github.com/abbyssoul/conan-%s.git" % name
